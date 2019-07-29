@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>83973054278-rs5oclhto5e5t47hi2ttr2hkkmop58g4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.83973054278-rs5oclhto5e5t47hi2ttr2hkkmop58g4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyApwHqeTqa9ya27xYqlv1bQD2BFdfYioRE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>83973054278</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sjcomp.designthinking</string>
+	<key>PROJECT_ID</key>
+	<string>hackaton-f857e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hackaton-f857e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:83973054278:ios:75e1f12d371e3e4f</string>
+	<key>DATABASE_URL</key>
+	<string>https://hackaton-f857e.firebaseio.com</string>
+</dict>
+</plist>
