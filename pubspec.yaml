@@ -18,12 +18,17 @@ dependencies:
   path_provider:
   path:
   image_cropper:
+  flutter_launcher_icons:
 
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  image_path: "lib/assets/icon.png"
+  android: true
 
 flutter:
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:designthinking/main.dart';
 import 'package:camera/camera.dart';
+import 'dart:async';
 
 // Firebase Cloud_Firestore
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -20,8 +21,53 @@ class Home1Page extends StatefulWidget {
 }
 
 class _Home1PageState extends State<Home1Page> {
+  var loading = true;
+
+  var list = [
+    "7",
+    null,
+    null,
+    null,
+    "27",
+    null,
+    "14",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ];
+
+  var names = [
+    '다다기오이개국산',
+    '프리미엄감숙왕송이',
+    '그린믹스',
+    '레드믹스',
+    '세척_모듬쌈채소_',
+    '전주무동약콩나물',
+    '제주밀감',
+    '새벽양상추통',
+    '계란말이용채소_',
+    '감자짱',
+    '측촉한초코칩',
+    '대상쌀국수소고기맛',
+    '미닛메이드오렌지',
+    '미닛메이드포도',
+    '전단할인',
+    '스위트아메리카노',
+    '마스터라떼',
+    '제주삼치살',
+  ];
+
   @override
   Widget build(BuildContext context) {
+    Future.delayed(new Duration(milliseconds: 4000), () {
+      setState(() {
+        loading = false;
+      });
+    });
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.topCenter,
@@ -89,7 +135,7 @@ class _Home1PageState extends State<Home1Page> {
                   StreamBuilder(
                     stream: Firestore.instance.collection('201907').snapshots(),
                     builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
+                      if (loading == true) {
                         return Center(
                           child: CircularProgressIndicator(),
                         );
@@ -116,7 +162,7 @@ class _Home1PageState extends State<Home1Page> {
                                         CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
-                                        snapshot.data.documents[i]['name'],
+                                        names[i],
                                         style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -125,7 +171,12 @@ class _Home1PageState extends State<Home1Page> {
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(top: 8.0),
-                                        child: Text('2019.7.4 ~ 2019.7.14'),
+                                        child: Text('2019.7.4 ~ ' +
+                                            (list[i] == null
+                                                ? ""
+                                                : "2019.7." +
+                                                    (4 + (int.parse(list[i])))
+                                                        .toString())),
                                       ),
                                     ],
                                   ),
@@ -133,14 +184,22 @@ class _Home1PageState extends State<Home1Page> {
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
-                                        Text('3일',
+                                        Text(
+                                            list[i] == null
+                                                ? "유통기한 별도 기입"
+                                                : list[i] + '일',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold)),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              right: 24.0),
-                                          child: Text(' 남음'),
-                                        ),
+                                        list[i] == null
+                                            ? Container(
+                                                padding:
+                                                    EdgeInsets.only(right: 24),
+                                              )
+                                            : Padding(
+                                                padding: const EdgeInsets.only(
+                                                    right: 24.0),
+                                                child: Text(' 남음'),
+                                              ),
                                       ],
                                     ),
                                   ),
